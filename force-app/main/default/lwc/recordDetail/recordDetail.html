@@ -1,0 +1,28 @@
+<template>
+    <article class="game-card">
+        <template if:true={game}>
+            <div class="game-card__image-container">
+                <img src={game.Logo__c} alt={game.Name} class="game-card__image" />
+            </div>
+        </template>
+        <template if:false={game}>
+            <div class="game-card__placeholder">
+                <span class="game-card__placeholder-text">No game selected</span>
+            </div>
+        </template>
+        <div class="game-card__content">
+            <template if:true={game}>
+                <h2 class="game-card__title">{game.Name}</h2>
+                <div class="game-card__details">
+                    <p><span class="game-card__label">Genre:</span> {game.Genre__c}</p>
+                    <p><span class="game-card__label">Platform:</span> {game.Platform__c}</p>
+                    <p><span class="game-card__label">Release Date:</span> {game.Release_Date__c}</p>
+                    <p><span class="game-card__label">Developer:</span> {game.Developer__c}</p>
+                </div>
+            </template>
+            <template if:false={game}>
+                <p class="game-card__no-details">Select a record to see details</p>
+            </template>
+        </div>
+    </article>
+</template>

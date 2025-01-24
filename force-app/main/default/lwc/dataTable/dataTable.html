@@ -1,0 +1,10 @@
+<template>
+    <lightning-datatable 
+        class="slds-table_col-bordered slds-table_striped" 
+        data={games}
+        columns={columns}
+        key-field="Id"
+        onrowaction={handleSelectedGame} 
+        hide-checkbox-column="true">
+    </lightning-datatable>
+</template>

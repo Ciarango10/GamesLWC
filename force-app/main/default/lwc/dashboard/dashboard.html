@@ -1,0 +1,10 @@
+<template>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-p-horizontal_medium slds-size_1-of-1 slds-medium-size_8-of-12 slds-large-size_9-of-12">
+            <c-data-table onselectedgame={handleRecordSelect}></c-data-table>        
+        </div>
+        <div class="slds-col slds-p-horizontal_medium slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_3-of-12">
+            <c-record-detail game-detail-id={selectedGameId}></c-record-detail>
+        </div>
+    </div>
+</template>

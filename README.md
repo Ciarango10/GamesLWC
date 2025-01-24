@@ -1,18 +1,23 @@
-# Salesforce DX Project: Next Steps
+# Dashboard Documentation
+## Components
+Parent Component: Dashboard
+Purpose: Serves as the main container for the dashboard and coordinates interactions between its child components.
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+## Child Component: Data Table
+Purpose: Displays a list of game records in a tabular format, allowing users to view available games and select one for more details.
 
-## How Do You Plan to Deploy Your Changes?
+## Child Component: Record Detail
+Purpose: Shows detailed information about the selected game, including its name, genre, platform, release date, logo, and developer, or indicates when no game is selected.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+# Dashboard Overview and Use Cases
+The dashboard is divided into two sections:
 
-## Configure Your Salesforce DX Project
+## Game List Section (Data Table): 
+Displays a structured list of game records in a table format. Each row includes essential information (e.g., name, genre, platform) and a button to view more details.
+## Game Details Section (Record Detail): 
+Dynamically updates to show detailed information about the selected game. When no game is selected, it displays a placeholder message.
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+# Use Cases
+1. Game Exploration: Users can browse through a library of games to identify ones they are interested in.
+2. Detailed Insights: Users can click on a game to view specific details, such as its release date or developer information.
+3. Data-Driven Decisions: Enables users (e.g., game store managers) to analyze the game library for business purposes.
