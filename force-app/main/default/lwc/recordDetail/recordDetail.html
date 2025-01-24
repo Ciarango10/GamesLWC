@@ -1,27 +1,60 @@
 <template>
-    <article class="game-card">
+    <article class="slds-box slds-theme_shade slds-p-around_medium slds-shadow_medium" style="border-radius: 10px;">
         <template if:true={game}>
-            <div class="game-card__image-container">
-                <img src={game.Logo__c} alt={game.Name} class="game-card__image" />
+            <div 
+                class="slds-card__header slds-p-bottom_small slds-theme_inverse" 
+                style="border-bottom: 1px solid #d8dde6; border-radius: 5px;">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <img 
+                            src={game.Logo__c} 
+                            alt={game.Name} 
+                            class="slds-avatar slds-avatar_large" 
+                            style="border-radius: 50%;"
+                        />
+                    </div>
+                    <div class="slds-media__body slds-text-align_right">
+                        <h2 class="slds-text-heading_medium slds-text-color_inverse">{game.Name}</h2>
+                    </div>
+                </div>
             </div>
         </template>
+        
         <template if:false={game}>
-            <div class="game-card__placeholder">
-                <span class="game-card__placeholder-text">No game selected</span>
+            <div class="slds-card__header slds-theme_alert-texture slds-p-around_medium">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <lightning-icon 
+                            icon-name="utility:info" 
+                            size="medium" 
+                            variant="warning" 
+                            alternative-text="No game selected"
+                        ></lightning-icon>
+                    </div>
+                    <div class="slds-media__body">
+                        <h2 class="slds-text-heading_medium">No game selected</h2>
+                        <p class="slds-text-body_small">Please select a game to view its details</p>
+                    </div>
+                </div>
             </div>
         </template>
-        <div class="game-card__content">
+
+        <div class="slds-card__body slds-card__body_inner">
             <template if:true={game}>
-                <h2 class="game-card__title">{game.Name}</h2>
-                <div class="game-card__details">
-                    <p><span class="game-card__label">Genre:</span> {game.Genre__c}</p>
-                    <p><span class="game-card__label">Platform:</span> {game.Platform__c}</p>
-                    <p><span class="game-card__label">Release Date:</span> {game.Release_Date__c}</p>
-                    <p><span class="game-card__label">Developer:</span> {game.Developer__c}</p>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                        <p><strong>Genre:</strong> {game.Genre__c}</p>
+                        <p><strong>Platform:</strong> {game.Platform__c}</p>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                        <p><strong>Release Date:</strong> {game.Release_Date__c}</p>
+                        <p><strong>Developer:</strong> {game.Developer__c}</p>
+                    </div>
                 </div>
             </template>
+
             <template if:false={game}>
-                <p class="game-card__no-details">Select a record to see details</p>
+                <p class="slds-text-body_regular">Select a record to see details</p>
             </template>
         </div>
     </article>

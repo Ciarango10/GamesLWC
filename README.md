@@ -4,7 +4,7 @@ Parent Component: Dashboard
 Purpose: Serves as the main container for the dashboard and coordinates interactions between its child components.
 
 ## Child Component: Data Table
-Purpose: Displays a list of game records in a tabular format, allowing users to view available games and select one for more details.
+Purpose: Displays a list of game records in a tabular format, allowing users to view, edit and delete available games and select one for more details.
 
 ## Child Component: Record Detail
 Purpose: Shows detailed information about the selected game, including its name, genre, platform, release date, logo, and developer, or indicates when no game is selected.
@@ -13,7 +13,7 @@ Purpose: Shows detailed information about the selected game, including its name,
 The dashboard is divided into two sections:
 
 ## Game List Section (Data Table): 
-Displays a structured list of game records in a table format. Each row includes essential information (e.g., name, genre, platform) and a button to view more details.
+Displays a structured list of game records in a table format. Each row includes essential information (e.g., name, genre, platform) and buttons to view more details, edit and delete.
 ## Game Details Section (Record Detail): 
 Dynamically updates to show detailed information about the selected game. When no game is selected, it displays a placeholder message.
 

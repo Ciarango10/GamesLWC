@@ -1,10 +1,79 @@
 <template>
-    <lightning-datatable 
-        class="slds-table_col-bordered slds-table_striped" 
-        data={games}
-        columns={columns}
-        key-field="Id"
-        onrowaction={handleSelectedGame} 
-        hide-checkbox-column="true">
-    </lightning-datatable>
+    <lightning-input 
+        label="Search Games" 
+        value={filter} 
+        onchange={handleFilterChange}
+        placeholder="Search by name, genre, platform, or developer">
+    </lightning-input>
+
+    <div class="responsive-table">
+        <lightning-datatable 
+            class="slds-table_col-bordered slds-table_striped" 
+            data={games}
+            columns={columns}
+            key-field="Id"
+            onrowaction={handleSelectedGame} 
+            hide-checkbox-column="true">
+        </lightning-datatable>
+    </div>
+
+    <template if:true={isModalOpen}>
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 class="slds-text-heading_medium">Edit Game</h2>
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                        onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close" alternative-text="Close" variant="inverse"></lightning-icon>
+                    </button>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <lightning-input
+                        label="Game Name"
+                        value={editableGame.Name}
+                        onchange={handleFieldChange}
+                        data-field="Name">
+                    </lightning-input>
+                    <lightning-dual-listbox
+                        label="Genre"
+                        source-label="Available Genres"
+                        selected-label="Selected Genres"
+                        field-level-help="Select one or more genres."
+                        value={editableGame.Genre__c}
+                        onchange={handleFieldChange}
+                        options={genreOptions}
+                        data-field="Genre__c">
+                    </lightning-dual-listbox>
+                    <lightning-dual-listbox
+                        label="Platform"
+                        source-label="Available Platforms"
+                        selected-label="Selected Platforms"
+                        field-level-help="Select one or more platforms."
+                        value={editableGame.Platform__c}
+                        onchange={handleFieldChange}
+                        options={platformOptions}
+                        data-field="Platform__c">
+                    </lightning-dual-listbox>
+                    <lightning-input
+                        type="date"
+                        label="Release Date"
+                        value={editableGame.Release_Date__c}
+                        onchange={handleFieldChange}
+                        data-field="Release_Date__c">
+                    </lightning-input>
+                    <lightning-input
+                        label="Developer"
+                        value={editableGame.Developer__c}
+                        onchange={handleFieldChange}
+                        data-field="Developer__c">
+                    </lightning-input>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning-button variant="neutral" label="Cancel" onclick={closeModal}></lightning-button>
+                    <lightning-button variant="brand" class="slds-m-left_small" label="Save" onclick={editGame}></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
 </template>
