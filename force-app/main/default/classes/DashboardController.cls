@@ -58,4 +58,16 @@ public with sharing class DashboardController {
             throw new AuraHandledException('An error occurred while deleting the game record: ' + e.getMessage());
         }
     }
+
+    @AuraEnabled(cacheable=true)
+    public static List<Game__c> getGamesSalesData() {
+        try {
+            return [
+                SELECT Name, Sales__c
+                FROM Game__c
+            ];
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
 }

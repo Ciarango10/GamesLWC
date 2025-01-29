@@ -1,61 +1,37 @@
 <template>
-    <article class="slds-box slds-theme_shade slds-p-around_medium slds-shadow_medium" style="border-radius: 10px;">
+    <div class="slds-box slds-theme_shade slds-shadow_medium" style="border-radius: 10px;">
         <template if:true={game}>
-            <div 
-                class="slds-card__header slds-p-bottom_small slds-theme_inverse" 
-                style="border-bottom: 1px solid #d8dde6; border-radius: 5px;">
-                <div class="slds-media">
-                    <div class="slds-media__figure">
-                        <img 
-                            src={game.Logo__c} 
-                            alt={game.Name} 
-                            class="slds-avatar slds-avatar_large" 
-                            style="border-radius: 50%;"
-                        />
-                    </div>
-                    <div class="slds-media__body slds-text-align_right">
-                        <h2 class="slds-text-heading_medium slds-text-color_inverse">{game.Name}</h2>
-                    </div>
-                </div>
-            </div>
+            <lightning-layout horizontal-align="spread" vertical-align="center" class="slds-theme_inverse slds-p-around_medium" style="border-radius: 5px; border-bottom: 1px solid #d8dde6;">
+                <lightning-layout-item flexibility="auto">
+                    <lightning-avatar variant="circle" size="large" src={game.Logo__c} alternative-text={game.Name}></lightning-avatar>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto">
+                    <h2 class="slds-text-heading_medium slds-text-color_inverse">{game.Name}</h2>
+                </lightning-layout-item>
+            </lightning-layout>
+            
+            <lightning-layout class="slds-p-around_medium slds-theme_shade">
+                <lightning-layout-item size="6">
+                    <p><strong>Genre:</strong> {game.Genre__c}</p>
+                    <p><strong>Platform:</strong> {game.Platform__c}</p>
+                </lightning-layout-item>
+                <lightning-layout-item size="6">
+                    <p><strong>Release Date:</strong> {game.Release_Date__c}</p>
+                    <p><strong>Developer:</strong> {game.Developer__c}</p>
+                </lightning-layout-item>
+            </lightning-layout>
         </template>
-        
+
         <template if:false={game}>
-            <div class="slds-card__header slds-theme_alert-texture slds-p-around_medium">
-                <div class="slds-media">
-                    <div class="slds-media__figure">
-                        <lightning-icon 
-                            icon-name="utility:info" 
-                            size="medium" 
-                            variant="warning" 
-                            alternative-text="No game selected"
-                        ></lightning-icon>
-                    </div>
-                    <div class="slds-media__body">
-                        <h2 class="slds-text-heading_medium">No game selected</h2>
-                        <p class="slds-text-body_small">Please select a game to view its details</p>
-                    </div>
-                </div>
-            </div>
+            <lightning-layout class="slds-theme_alert-texture slds-p-around_medium">
+                <lightning-layout-item flexibility="auto">
+                    <lightning-icon icon-name="utility:info" size="medium" variant="warning" alternative-text="No game selected"></lightning-icon>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto">
+                    <h2 class="slds-text-heading_medium">No game selected</h2>
+                    <p class="slds-text-body_small">Please select a game to view its details</p>
+                </lightning-layout-item>
+            </lightning-layout>
         </template>
-
-        <div class="slds-card__body slds-card__body_inner">
-            <template if:true={game}>
-                <div class="slds-grid slds-wrap slds-gutters">
-                    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
-                        <p><strong>Genre:</strong> {game.Genre__c}</p>
-                        <p><strong>Platform:</strong> {game.Platform__c}</p>
-                    </div>
-                    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
-                        <p><strong>Release Date:</strong> {game.Release_Date__c}</p>
-                        <p><strong>Developer:</strong> {game.Developer__c}</p>
-                    </div>
-                </div>
-            </template>
-
-            <template if:false={game}>
-                <p class="slds-text-body_regular">Select a record to see details</p>
-            </template>
-        </div>
-    </article>
+    </div>
 </template>

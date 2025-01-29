@@ -1,7 +1,7 @@
 import { LightningElement, track } from 'lwc';
 
 export default class Dashboard extends LightningElement {
-    @track selectedGameId;
+    selectedGameId;
 
     // Updates the selectedGameId when a game is selected in the DataTable component.
     handleRecordSelect(event) {

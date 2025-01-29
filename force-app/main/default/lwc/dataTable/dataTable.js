@@ -27,8 +27,7 @@ export default class DataTable extends LightningElement {
                 name: 'moreInfo',
                 variant: 'brand',
                 iconName: 'utility:info',
-                iconPosition: 'right',
-                class: 'button-fixed-size'
+                iconPosition: 'right'
             }
         },
         {
@@ -38,8 +37,7 @@ export default class DataTable extends LightningElement {
                 name: 'edit',
                 variant: 'neutral',
                 iconName: 'utility:edit',
-                iconPosition: 'right',
-                class: 'button-fixed-size'
+                iconPosition: 'right'
             }
         },
         {
@@ -49,8 +47,7 @@ export default class DataTable extends LightningElement {
                 name: 'delete',
                 variant: 'destructive',
                 iconName: 'utility:delete',
-                iconPosition: 'right',
-                class: 'button-fixed-size'
+                iconPosition: 'right'
             }
         }
     ];
