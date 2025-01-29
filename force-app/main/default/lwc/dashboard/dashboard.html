@@ -1,12 +1,17 @@
 <template>
     <lightning-card style="border-radius: 10px;">
+        <lightning-button 
+            label={buttonLabel} 
+            onclick={handleTheme} 
+            class="slds-m-around_medium slds-p-around_medium">
+        </lightning-button>
         <lightning-layout vertical-align="center" multiple-rows class="slds-p-around_medium">
             <lightning-layout-item padding="horizontal-medium" size="12" small-device-size="12" medium-device-size="12" large-device-size="8">
                 <c-data-table onselectedgame={handleRecordSelect}></c-data-table>
             </lightning-layout-item>
             
             <lightning-layout-item padding="horizontal-medium" class="slds-m-top_small" size="12" small-device-size="12" medium-device-size="12" large-device-size="4" style="border-radius: 10px;">
-                <c-record-detail game-detail-id={selectedGameId}></c-record-detail>
+                <c-record-detail game-detail-id={selectedGameId} theme={themeClass} inverse-theme={inverseThemeClass} color-theme={colorThemeClass}></c-record-detail>
             </lightning-layout-item>
         </lightning-layout>
     </lightning-card>

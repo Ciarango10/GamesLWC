@@ -3,6 +3,9 @@ import getGameDetails from '@salesforce/apex/DashboardController.getGameDetails'
 
 export default class RecordDetail extends LightningElement {
     @api gameDetailId;
+    @api theme;
+    @api inverseTheme;
+    @api colorTheme;
     game = null;
     error = undefined;
     
